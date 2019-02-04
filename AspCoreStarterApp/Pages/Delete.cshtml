@@ -1,0 +1,52 @@
+﻿@page
+@model AspCoreStarterApp.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.ReleaseDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.ReleaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Genre)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Genre)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Artist)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Artist)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Album.Price)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Album.id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

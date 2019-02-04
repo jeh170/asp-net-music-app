@@ -4,14 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using AspCoreStarterApp.Models;
 
 namespace AspCoreStarterApp.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
-        {
+        private readonly AspCoreStarterApp.Models.AspCoreStarterAppContext _context;
 
+        public IndexModel(AspCoreStarterApp.Models.AspCoreStarterAppContext context)
+        {
+            _context = context;
+        }
+
+        public IList<Album> Album { get;set; }
+
+        public async Task OnGetAsync()
+        {
+            Album = await _context.Album.ToListAsync();
         }
     }
 }
